@@ -1,0 +1,192 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  slug        String   @unique @db.VarChar(255)
+  email       String?  @db.VarChar(255)
+  bio         String?  @db.Text
+  avatarUrl   String?  @map("avatar_url") @db.Text
+  website     String?  @db.VarChar(500)
+  posts       Post[]
+  pages       Page[]
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("authors")
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  slug        String   @unique @db.VarChar(255)
+  description String?  @db.Text
+  parentId    Int?
+  parent      Category? @relation("CategoryHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children    Category[] @relation("CategoryHierarchy")
+  posts       PostCategory[]
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("categories")
+}
+
+model Tag {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  slug        String   @unique @db.VarChar(255)
+  description String?  @db.Text
+  posts       PostTag[]
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("tags")
+}
+
+model Post {
+  id               Int       @id @default(autoincrement())
+  slug             String    @unique @db.VarChar(255)
+  title            String    @db.Text
+  content          String    @db.LongText
+  excerpt          String    @db.Text
+  date             DateTime  @map("post_date")
+  modified         DateTime  @map("post_modified")
+  authorId         Int       @default(1) @map("author_id")
+  author           Author    @relation(fields: [authorId], references: [id])
+  status           String    @default("publish") @db.VarChar(20)
+  commentStatus    String    @default("open") @map("comment_status") @db.VarChar(20)
+  
+  // Featured image
+  featuredImageUrl String?   @map("featured_image_url") @db.Text
+  featuredImageId  Int?      @map("featured_image_id")
+  
+  // Meta fields (stored as JSON)
+  originalLink     String?   @map("original_link") @db.Text
+  format          String    @default("standard") @db.VarChar(50)
+  
+  // Relations
+  categories      PostCategory[]
+  tags            PostTag[]
+  images          PostImage[]
+  
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([date])
+  @@map("posts")
+}
+
+model PostCategory {
+  postId       Int      @map("post_id")
+  categoryId   Int      @map("category_id")
+  post         Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  category     Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([postId, categoryId])
+  @@map("post_categories")
+}
+
+model PostTag {
+  postId   Int  @map("post_id")
+  tagId    Int  @map("tag_id")
+  post     Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag      Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@map("post_tags")
+}
+
+model PostImage {
+  id          Int      @id @default(autoincrement())
+  postId      Int      @map("post_id")
+  originalUrl String   @map("original_url") @db.Text
+  cleanUrl    String?  @map("clean_url") @db.Text
+  altText     String?  @map("alt_text") @db.VarChar(500)
+  width       String?  @db.VarChar(20)
+  height      String?  @db.VarChar(20)
+  mediaId     Int?     @map("media_id")
+  post        Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  media       Media?   @relation(fields: [mediaId], references: [id], onDelete: SetNull)
+
+  @@index([postId])
+  @@map("post_images")
+}
+
+model Media {
+  id          Int       @id @default(autoincrement())
+  filename    String    @db.VarChar(255)
+  path        String    @db.VarChar(500)
+  url         String    @db.Text
+  mimeType    String?   @map("mime_type") @db.VarChar(100)
+  fileSize    Int?      @map("file_size")
+  width       Int?
+  height      Int?
+  altText     String?   @map("alt_text") @db.VarChar(500)
+  uploadedAt  DateTime  @default(now()) @map("uploaded_at")
+  postImages  PostImage[]
+  pageImages  PageImage[]
+
+  @@map("media")
+}
+
+model Page {
+  id               Int      @id @default(autoincrement())
+  slug             String   @unique @db.VarChar(255)
+  title            String   @db.Text
+  content          String   @db.LongText
+  date             DateTime @map("page_date")
+  modified         DateTime @map("page_modified")
+  authorId         Int      @default(1) @map("author_id")
+  author           Author   @relation(fields: [authorId], references: [id])
+  parentId         Int?     @map("parent_id")
+  parent           Page?    @relation("PageHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children         Page[]   @relation("PageHierarchy")
+  menuOrder        Int      @default(0) @map("menu_order")
+  status           String   @default("publish") @db.VarChar(20)
+  
+  // Featured image
+  featuredImageUrl String?  @map("featured_image_url") @db.Text
+  featuredImageId  Int?     @map("featured_image_id")
+  
+  // Meta fields
+  originalLink     String?  @map("original_link") @db.Text
+  template         String   @default("default") @db.VarChar(100)
+  
+  images           PageImage[]
+  
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([parentId])
+  @@map("pages")
+}
+
+model PageImage {
+  id          Int      @id @default(autoincrement())
+  pageId      Int      @map("page_id")
+  originalUrl String   @map("original_url") @db.Text
+  cleanUrl    String?  @map("clean_url") @db.Text
+  altText     String?  @map("alt_text") @db.VarChar(500)
+  width       String?  @db.VarChar(20)
+  height      String?  @db.VarChar(20)
+  mediaId     Int?     @map("media_id")
+  page        Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  media       Media?   @relation(fields: [mediaId], references: [id], onDelete: SetNull)
+
+  @@index([pageId])
+  @@map("page_images")
+}

@@ -1,0 +1,247 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Gentle Substack-inspired color scheme */
+:root {
+  --radius: 0.5rem;
+  /* Warm off-white background like Substack */
+  --background: #fafafa;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  /* Gentle primary color - soft blue */
+  --primary: #2c5aa0;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #1a1a1a;
+  /* Muted colors for subtle UI elements */
+  --muted: #f7f7f7;
+  --muted-foreground: #666666;
+  --accent: #f0f4f8;
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc2626;
+  /* Soft borders */
+  --border: #e5e5e5;
+  --input: #f0f0f0;
+  --ring: #d1d5db;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #2c5aa0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #d1d5db;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card: #1a1a1a;
+  --card-foreground: #ededed;
+  --popover: #1a1a1a;
+  --popover-foreground: #ededed;
+  --primary: #4a7bc8;
+  --primary-foreground: #ededed;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #ededed;
+  --muted: #2a2a2a;
+  --muted-foreground: #999999;
+  --accent: #2a2a2a;
+  --accent-foreground: #ededed;
+  --destructive: #ef4444;
+  --border: #333333;
+  --input: #2a2a2a;
+  --ring: #444444;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ededed;
+  --sidebar-primary: #4a7bc8;
+  --sidebar-primary-foreground: #ededed;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #ededed;
+  --sidebar-border: #333333;
+  --sidebar-ring: #444444;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-[#fafafa] text-[#1a1a1a];
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Better focus styles */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-[#2c5aa0];
+  }
+}
+
+/* Substack-like typography styling */
+.prose {
+  @apply text-[#1a1a1a] leading-relaxed;
+}
+
+.prose p {
+  @apply mb-6 text-[18px] leading-[1.8] text-[#1a1a1a];
+}
+
+.prose h1 {
+  @apply text-4xl md:text-5xl font-bold mb-6 mt-8 leading-tight text-[#1a1a1a];
+}
+
+.prose h2 {
+  @apply text-3xl md:text-4xl font-bold mb-5 mt-8 leading-tight text-[#1a1a1a];
+}
+
+.prose h3 {
+  @apply text-2xl md:text-3xl font-semibold mb-4 mt-7 leading-snug text-[#1a1a1a];
+}
+
+.prose h4 {
+  @apply text-xl md:text-2xl font-semibold mb-3 mt-6 text-[#1a1a1a];
+}
+
+.prose img {
+  @apply my-8 rounded-lg w-full h-auto;
+}
+
+.prose a {
+  @apply text-[#2c5aa0] underline decoration-1 underline-offset-2 hover:text-[#1e3f6e] transition-colors;
+}
+
+.prose strong {
+  @apply font-semibold text-[#1a1a1a];
+}
+
+.prose em {
+  @apply italic;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-6 pl-6;
+}
+
+.prose li {
+  @apply mb-3 text-[18px] leading-[1.8];
+}
+
+.prose blockquote {
+  @apply border-l-4 border-[#e5e5e5] pl-6 my-6 italic text-[#666666];
+}
+
+.prose code {
+  @apply bg-[#f5f5f5] px-1.5 py-0.5 rounded text-sm font-mono text-[#1a1a1a];
+}
+
+.prose pre {
+  @apply bg-[#1a1a1a] text-[#ededed] p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-[#ededed];
+}
+
+/* Print styles for articles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  header,
+  footer,
+  nav,
+  .table-of-contents,
+  .social-share,
+  .related-posts,
+  button,
+  a[href^="http"]:after {
+    display: none !important;
+  }
+
+  .prose-wrapper {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .prose {
+    @apply text-black;
+  }
+
+  .prose img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+  }
+
+  article {
+    page-break-inside: avoid;
+  }
+}
