@@ -50,11 +50,20 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       siteName: "Hien Tensai Blog",
       type: "website",
       locale: "vi_VN",
+      images: [
+        {
+          url: `${siteUrl}/logo.png`,
+          width: 1200,
+          height: 630,
+          alt: `${categoryName} - Hien Tensai Blog`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
+      images: [`${siteUrl}/logo.png`],
     },
     alternates: {
       canonical: categoryUrl,
@@ -104,7 +113,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               <span className="text-[#666666]">{categoryName}</span>
             </nav>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a1a1a]">{categoryName}</h1>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold pb-[8px] bg-gradient-to-r from-[#4dd0e1] via-[#1f84ae] to-[#1597b3] bg-clip-text text-transparent">{categoryName}</h1>
             <p className="text-lg text-[#666666]">{posts.length} bài viết</p>
           </div>
 

@@ -53,7 +53,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             name: "Hien Tensai Blog",
             logo: {
               "@type": "ImageObject",
-              url: data.article.image || `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com"}/og-image.jpg`,
+              url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com"}/logo.png`,
             },
           },
           mainEntityOfPage: {
@@ -92,7 +92,12 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           "@type": "Organization",
           name: data.organization.name,
           url: data.organization.url,
-          logo: data.organization.logo,
+          ...(data.organization.logo && {
+            logo: {
+              "@type": "ImageObject",
+              url: data.organization.logo,
+            },
+          }),
         };
       }
       break;

@@ -42,11 +42,27 @@ export const metadata: Metadata = {
     siteName: "Hien Tensai Blog",
     title: "Hien Tensai Blog",
     description: "Chia sẻ về cuộc sống, học tập và du lịch",
+    images: [
+      {
+        url: `${siteUrl}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: "Hien Tensai Blog Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hien Tensai Blog",
     description: "Chia sẻ về cuộc sống, học tập và du lịch",
+    images: [`${siteUrl}/logo.png`],
+  },
+  icons: {
+    icon: [
+      { url: "/logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/logo.png", sizes: "180x180", type: "image/png" }],
   },
   robots: {
     index: true,
@@ -87,6 +103,7 @@ export default function RootLayout({
             organization: {
               name: "Hien Tensai Blog",
               url: siteUrl,
+              logo: `${siteUrl}/logo.png`,
             },
           }}
         />

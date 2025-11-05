@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getAllCategories } from "@/lib/posts";
 import MobileMenu from "@/components/MobileMenu";
 import type { Category } from "@/types/blog";
@@ -18,8 +19,13 @@ export default async function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo/Brand */}
-          <Link href="/" className="text-lg sm:text-xl font-semibold text-[#1a1a1a] hover:text-[#2c5aa0] transition-colors">
-            Hien Tensai
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity group">
+            <div className="relative flex-shrink-0">
+              <Image src="/logo.png" alt="Hien Tensai" width={40} height={40} className="h-8 w-8 sm:h-10 sm:w-10 object-contain transition-transform group-hover:scale-105" priority />
+            </div>
+            <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#4dd0e1] via-[#1f84ae] to-[#1597b3] bg-clip-text text-transparent group-hover:from-[#26c6da] group-hover:via-[#1a7fa9] group-hover:to-[#0d7a94] transition-all">
+              Hien Tensai
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}

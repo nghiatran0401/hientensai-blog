@@ -81,7 +81,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
   }
 
   return (
-    <nav className="hidden lg:block fixed top-28 left-4 xl:left-8 w-64 max-h-[calc(100vh-9rem)] overflow-y-auto bg-white border border-[#e5e5e5] rounded-lg p-5 shadow-sm z-20">
+    <nav className="w-64 max-h-[calc(100vh-9rem)] overflow-y-auto bg-white border border-[#e5e5e5] rounded-lg p-5 shadow-sm z-20">
       <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#e5e5e5]">
         <List className="w-4 h-4 text-[#666666]" />
         <h3 className="text-sm font-semibold text-[#1a1a1a] uppercase tracking-wide">Mục lục</h3>

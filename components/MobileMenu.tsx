@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { X, Menu } from "lucide-react";
 import type { Category } from "@/types/blog";
 
@@ -52,8 +53,13 @@ export default function MobileMenu({ categories }: MobileMenuProps) {
         <div className="fixed right-0 top-0 h-full w-72 sm:w-80 bg-white shadow-2xl overflow-y-auto z-[10000] md:hidden transform translate-x-0 transition-transform duration-300 ease-out">
           {/* Header with brand and close button */}
           <div className="sticky top-0 bg-white border-b border-[#e5e5e5] px-6 py-4 flex items-center justify-between z-10 shadow-sm">
-            <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-semibold text-[#1a1a1a] hover:text-[#2c5aa0] transition-colors">
-              Hien Tensai
+            <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 hover:opacity-80 transition-opacity group">
+              <div className="relative flex-shrink-0">
+                <Image src="/logo.png" alt="Hien Tensai" width={32} height={32} className="h-8 w-8 object-contain" />
+              </div>
+              <span className="text-lg font-bold bg-gradient-to-r from-[#4dd0e1] via-[#1f84ae] to-[#1597b3] bg-clip-text text-transparent group-hover:from-[#26c6da] group-hover:via-[#1a7fa9] group-hover:to-[#0d7a94] transition-all">
+                Hien Tensai
+              </span>
             </Link>
             <button onClick={() => setIsOpen(false)} className="p-1.5 text-[#666666] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] rounded-full transition-colors" aria-label="Close menu">
               <X className="w-5 h-5" />

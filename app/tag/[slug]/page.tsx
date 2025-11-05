@@ -60,11 +60,20 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       siteName: "Hien Tensai Blog",
       type: "website",
       locale: "vi_VN",
+      images: [
+        {
+          url: `${siteUrl}/logo.png`,
+          width: 1200,
+          height: 630,
+          alt: `#${tagName} - Hien Tensai Blog`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
+      images: [`${siteUrl}/logo.png`],
     },
     alternates: {
       canonical: tagUrl,

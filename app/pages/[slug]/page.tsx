@@ -40,6 +40,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = page.title;
   const url = `${siteUrl}/pages/${slug}`;
 
+  const image = page.featuredImage ? `${siteUrl}${page.featuredImage.url}` : `${siteUrl}/logo.png`;
+
   return {
     title,
     description,
@@ -50,11 +52,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url,
       siteName: "Hien Tensai Blog",
       type: "website",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: page.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [image],
     },
     alternates: {
       canonical: url,

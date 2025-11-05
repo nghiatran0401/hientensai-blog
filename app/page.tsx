@@ -3,6 +3,7 @@ import PostCard from "@/components/PostCard";
 import PostImage from "@/components/PostImage";
 import StructuredData from "@/components/StructuredData";
 import Link from "next/link";
+import Image from "next/image";
 import { formatDate, calculateReadingTime } from "@/lib/posts";
 import { Clock, ArrowRight } from "lucide-react";
 
@@ -27,7 +28,12 @@ export default async function Home() {
         {/* Enhanced Hero Section */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20">
           <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-[#1a1a1a] leading-tight tracking-tight">Hien Tensai</h1>
+            <div className="flex flex-col items-center gap-4 md:gap-6 mb-6 md:mb-8">
+              <div className="relative">
+                <Image src="/logo.png" alt="Hien Tensai" width={120} height={120} className="h-20 w-20 md:h-28 md:w-28 object-contain hover:scale-105 transition-transform duration-300" priority />
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#4dd0e1] via-[#1f84ae] to-[#1597b3] bg-clip-text text-transparent leading-tight tracking-tight">Hien Tensai</h1>
+            </div>
             <p className="text-xl md:text-2xl text-[#666666] leading-relaxed max-w-2xl mx-auto mb-6">Chia sẻ về cuộc sống, học tập và du lịch</p>
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-[#999999]">
               <span>{allPosts.length} bài viết</span>
