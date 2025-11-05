@@ -15,12 +15,12 @@ export async function generateMetadata({ searchParams }: PostsPageProps): Promis
   const { total, totalPages } = await getPaginatedPosts(currentPage, 12);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com";
 
-  const title = currentPage > 1 ? `Tất cả bài viết - Trang ${currentPage} | Hiền Tensai Blog` : "Tất cả bài viết | Hiền Tensai Blog";
+  const title = currentPage > 1 ? `Tất cả bài viết - Trang ${currentPage} | Hien Tensai Blog` : "Tất cả bài viết | Hien Tensai Blog";
 
   const description =
     currentPage > 1
       ? `Danh sách tất cả bài viết - Trang ${currentPage}/${totalPages}. ${total} bài viết về cuộc sống, học tập và du lịch.`
-      : `Khám phá ${total} bài viết về cuộc sống, học tập và du lịch trên Hiền Tensai Blog.`;
+      : `Khám phá ${total} bài viết về cuộc sống, học tập và du lịch trên Hien Tensai Blog.`;
 
   return {
     title,
@@ -29,7 +29,7 @@ export async function generateMetadata({ searchParams }: PostsPageProps): Promis
       title,
       description,
       url: `${siteUrl}/posts${currentPage > 1 ? `?page=${currentPage}` : ""}`,
-      siteName: "Hiền Tensai Blog",
+      siteName: "Hien Tensai Blog",
       type: "website",
       locale: "vi_VN",
     },

@@ -50,7 +50,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           },
           publisher: {
             "@type": "Organization",
-            name: "Hiền Tensai Blog",
+            name: "Hien Tensai Blog",
             logo: {
               "@type": "ImageObject",
               url: data.article.image || `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com"}/og-image.jpg`,

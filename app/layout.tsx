@@ -15,14 +15,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com"
 
 export const metadata: Metadata = {
   title: {
-    default: "Hiền Tensai Blog",
-    template: "%s | Hiền Tensai Blog",
+    default: "Hien Tensai Blog",
+    template: "%s | Hien Tensai Blog",
   },
   description: "Chia sẻ về cuộc sống, học tập và du lịch",
   keywords: ["blog", "cuộc sống", "học tập", "du lịch", "Việt Nam"],
-  authors: [{ name: "Hiền Tensai" }],
-  creator: "Hiền Tensai",
-  publisher: "Hiền Tensai",
+  authors: [{ name: "Hien Tensai" }],
+  creator: "Hien Tensai",
+  publisher: "Hien Tensai",
   formatDetection: {
     email: false,
     address: false,
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "vi_VN",
     url: siteUrl,
-    siteName: "Hiền Tensai Blog",
-    title: "Hiền Tensai Blog",
+    siteName: "Hien Tensai Blog",
+    title: "Hien Tensai Blog",
     description: "Chia sẻ về cuộc sống, học tập và du lịch",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hiền Tensai Blog",
+    title: "Hien Tensai Blog",
     description: "Chia sẻ về cuộc sống, học tập và du lịch",
   },
   robots: {
@@ -75,7 +75,7 @@ export default function RootLayout({
           type="website"
           data={{
             website: {
-              name: "Hiền Tensai Blog",
+              name: "Hien Tensai Blog",
               url: siteUrl,
               description: "Chia sẻ về cuộc sống, học tập và du lịch",
             },
@@ -85,7 +85,7 @@ export default function RootLayout({
           type="organization"
           data={{
             organization: {
-              name: "Hiền Tensai Blog",
+              name: "Hien Tensai Blog",
               url: siteUrl,
             },
           }}

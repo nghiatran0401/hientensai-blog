@@ -27,7 +27,7 @@ export default async function Home() {
         {/* Enhanced Hero Section */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20">
           <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-[#1a1a1a] leading-tight tracking-tight">Hiền Tensai</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-[#1a1a1a] leading-tight tracking-tight">Hien Tensai</h1>
             <p className="text-xl md:text-2xl text-[#666666] leading-relaxed max-w-2xl mx-auto mb-6">Chia sẻ về cuộc sống, học tập và du lịch</p>
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-[#999999]">
               <span>{allPosts.length} bài viết</span>

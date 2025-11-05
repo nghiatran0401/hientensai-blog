@@ -19,7 +19,7 @@ export default async function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo/Brand */}
           <Link href="/" className="text-lg sm:text-xl font-semibold text-[#1a1a1a] hover:text-[#2c5aa0] transition-colors">
-            Hiền Tensai
+            Hien Tensai
           </Link>
 
           {/* Desktop Navigation Links */}

@@ -35,9 +35,9 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   const description = categoryDescription
     ? `${categoryDescription} Khám phá ${posts.length} bài viết trong danh mục ${categoryName}.`
-    : `Khám phá ${posts.length} bài viết trong danh mục ${categoryName} trên Hiền Tensai Blog.`;
+    : `Khám phá ${posts.length} bài viết trong danh mục ${categoryName} trên Hien Tensai Blog.`;
 
-  const title = `${categoryName} | Hiền Tensai Blog`;
+  const title = `${categoryName} | Hien Tensai Blog`;
 
   return {
     title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       title,
       description,
       url: categoryUrl,
-      siteName: "Hiền Tensai Blog",
+      siteName: "Hien Tensai Blog",
       type: "website",
       locale: "vi_VN",
     },

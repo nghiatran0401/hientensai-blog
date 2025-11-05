@@ -21,7 +21,7 @@ export default async function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-12">
           {/* About */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Hiền Tensai</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Hien Tensai</h3>
             <p className="text-[#b3b3b3] text-sm leading-relaxed mb-4">Chia sẻ về cuộc sống, học tập và du lịch</p>
 
             {/* Social Media Links */}
@@ -113,7 +113,7 @@ export default async function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-[#333333] pt-8 text-center text-sm text-[#808080]">
-          <p>© {currentYear} Hiền Tensai Blog. Tất cả quyền được bảo lưu.</p>
+          <p>© {currentYear} Hien Tensai Blog. Tất cả quyền được bảo lưu.</p>
         </div>
       </div>
     </footer>

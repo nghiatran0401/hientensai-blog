@@ -1,10 +1,10 @@
-# Hiền Tensai Blog
+# Hien Tensai Blog
 
 A modern Next.js blog powered by MySQL database and Prisma ORM, migrated from WordPress. This blog focuses on sharing stories about life, learning, and travel in Vietnamese.
 
 ## 📖 About
 
-**Hiền Tensai Blog** is a personal blog platform that showcases articles about daily life, educational content, and travel experiences. Built with Next.js 16 App Router and optimized for Vietnamese content, the blog features a clean, Substack-inspired design with excellent performance and SEO capabilities.
+**Hien Tensai Blog** is a personal blog platform that showcases articles about daily life, educational content, and travel experiences. Built with Next.js 16 App Router and optimized for Vietnamese content, the blog features a clean, Substack-inspired design with excellent performance and SEO capabilities.
 
 ### Blog Content Focus
 

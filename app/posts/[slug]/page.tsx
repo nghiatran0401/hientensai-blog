@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com";
-  const title = `${post.title} | Hiền Tensai Blog`;
+  const title = `${post.title} | Hien Tensai Blog`;
   const description = post.excerpt || post.title;
   const image = post.featuredImage ? `${siteUrl}${post.featuredImage.url}` : `${siteUrl}/og-image.jpg`;
   const url = `${siteUrl}/posts/${slug}`;
@@ -44,12 +44,12 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   return {
     title,
     description,
-    authors: [{ name: "Hiền Tensai" }],
+    authors: [{ name: "Hien Tensai" }],
     openGraph: {
       title,
       description,
       url,
-      siteName: "Hiền Tensai Blog",
+      siteName: "Hien Tensai Blog",
       images: [
         {
           url: image,
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       type: "article",
       publishedTime: post.date,
       modifiedTime: post.modified,
-      authors: ["Hiền Tensai"],
+      authors: ["Hien Tensai"],
       tags: post.tags.map((tag) => tag.name),
     },
     twitter: {
@@ -106,7 +106,7 @@ export default async function PostPage({ params }: PostPageProps) {
             image: post.featuredImage ? `${siteUrl}${post.featuredImage.url}` : undefined,
             datePublished: post.date,
             dateModified: post.modified,
-            author: "Hiền Tensai",
+            author: "Hien Tensai",
             url: postUrl,
           },
         }}

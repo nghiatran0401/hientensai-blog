@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com";
   const tagUrl = `${siteUrl}/tag/${slug}`;
 
-  const description = tagDescription ? `${tagDescription} Khám phá ${posts.length} bài viết với tag ${tagName}.` : `Khám phá ${posts.length} bài viết với tag ${tagName} trên Hiền Tensai Blog.`;
+  const description = tagDescription ? `${tagDescription} Khám phá ${posts.length} bài viết với tag ${tagName}.` : `Khám phá ${posts.length} bài viết với tag ${tagName} trên Hien Tensai Blog.`;
 
-  const title = `#${tagName} | Hiền Tensai Blog`;
+  const title = `#${tagName} | Hien Tensai Blog`;
 
   return {
     title,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       title,
       description,
       url: tagUrl,
-      siteName: "Hiền Tensai Blog",
+      siteName: "Hien Tensai Blog",
       type: "website",
       locale: "vi_VN",
     },

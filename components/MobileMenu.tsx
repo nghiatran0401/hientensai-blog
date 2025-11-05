@@ -53,7 +53,7 @@ export default function MobileMenu({ categories }: MobileMenuProps) {
           {/* Header with brand and close button */}
           <div className="sticky top-0 bg-white border-b border-[#e5e5e5] px-6 py-4 flex items-center justify-between z-10 shadow-sm">
             <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-semibold text-[#1a1a1a] hover:text-[#2c5aa0] transition-colors">
-              Hiền Tensai
+              Hien Tensai
             </Link>
             <button onClick={() => setIsOpen(false)} className="p-1.5 text-[#666666] hover:text-[#1a1a1a] hover:bg-[#f5f5f5] rounded-full transition-colors" aria-label="Close menu">
               <X className="w-5 h-5" />

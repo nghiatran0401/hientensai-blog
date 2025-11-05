@@ -36,19 +36,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hientensai.com";
-  const title = `${page.title} | Hiền Tensai Blog`;
+  const title = `${page.title} | Hien Tensai Blog`;
   const description = page.title;
   const url = `${siteUrl}/pages/${slug}`;
 
   return {
     title,
     description,
-    authors: [{ name: "Hiền Tensai" }],
+    authors: [{ name: "Hien Tensai" }],
     openGraph: {
       title,
       description,
       url,
-      siteName: "Hiền Tensai Blog",
+      siteName: "Hien Tensai Blog",
       type: "website",
     },
     twitter: {
