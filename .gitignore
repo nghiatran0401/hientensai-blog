@@ -26,5 +26,3 @@ Thumbs.db
 *.tmp
 *.bak
 temp_import.sql
-
-public/uploads
